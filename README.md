@@ -4,11 +4,16 @@
 python manage.py runserver
 ```
 
-
 ## migrate data
 
 ```bash
 python manage.py migrate
+```
+
+## make migrations
+
+```bash
+python manage.py makemigrations
 ```
 
 ## new app
