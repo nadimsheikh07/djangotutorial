@@ -14,7 +14,18 @@ class QuestionAdmin(admin.ModelAdmin):
         ("Date information", {"fields": ["pub_date"], "classes": ["collapse"]}),
     ]
     inlines = [ChoiceInline]
+    list_display = ["question_text", "pub_date", "was_published_recently"]
 
 
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Choice)
+
+
+class ChoiceAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {"fields": ["question", "choice_text"]}),
+        ("Date information", {"fields": ["votes"]}),
+    ]
+    list_display = ["question", "choice_text", "votes"]
+
+
+admin.site.register(Choice, ChoiceAdmin)
